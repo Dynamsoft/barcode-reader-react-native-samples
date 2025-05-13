@@ -1,0 +1,1 @@
+# barcode-reader-react-native-samples
