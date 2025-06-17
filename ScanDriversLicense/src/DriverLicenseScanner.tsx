@@ -1,0 +1,119 @@
+import React, {useEffect, useRef, useState} from 'react';
+import {View, Text, BackHandler, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import {
+  CameraEnhancer,
+  CameraView,
+  CaptureVisionRouter,
+  LicenseManager,
+  ParsedResult,
+} from 'dynamsoft-capture-vision-react-native';
+import {
+  DriverLicenseScanResult,
+  EnumResultStatus,
+  parsedItemToDriverLicenseData,
+} from './DriverLicenseScanResult.tsx';
+
+export interface ScannerViewProps {
+  onComplete: (result: DriverLicenseScanResult) => void;
+}
+
+export function ScannerView({onComplete}: ScannerViewProps) {
+  const cameraView = useRef<CameraView | null>(null);
+  const camera = CameraEnhancer.getInstance();
+  const cvr = CaptureVisionRouter.getInstance();
+  const [tips, setTips] = useState<string>('');
+
+  // License and permission setup
+  useEffect(() => {
+    LicenseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9').catch(() => {
+      // Ignore error here; it will be handled by startCapturing
+    });
+    CameraEnhancer.requestCameraPermission();
+
+    // Handle Android back button as cancel action
+    const sub = BackHandler.addEventListener('hardwareBackPress', () => {
+      onComplete({resultStatus: EnumResultStatus.RS_CANCELED});
+      return true;
+    });
+
+    return () => {
+      sub.remove();
+      onComplete({resultStatus: EnumResultStatus.RS_CANCELED});
+    };
+  }, [onComplete]);
+
+  // Start scanning and capture result
+  useEffect(() => {
+    cvr.setInput(camera);
+    camera.setCameraView(cameraView.current!);
+
+    const receiver = cvr.addResultReceiver({
+      onParsedResultsReceived: (result: ParsedResult) => {
+        if (result.items?.length) {
+          const data = parsedItemToDriverLicenseData(result.items[0]);
+          if (data) {
+            onComplete({
+              resultStatus: EnumResultStatus.RS_FINISHED,
+              errorCode: 0,
+              data,
+            });
+          } else {
+            setTips('Failed to parse result: essential information (name or license number) is missing.');
+          }
+        }
+      },
+    });
+
+    camera.open();
+    cvr.startCapturing('ReadDriversLicense').catch((e) => {
+      onComplete({
+        resultStatus: EnumResultStatus.RS_ERROR,
+        errorCode: e.code,
+        errorString: e.message,
+      });
+    });
+
+    return () => {
+      cvr.removeResultReceiver(receiver);
+      cvr.stopCapturing();
+      camera.close();
+    };
+  }, [camera, cameraView, cvr, onComplete]);
+
+  return (
+    <View style={styles.container}>
+      <CameraView style={StyleSheet.absoluteFill} ref={cameraView}/>
+      <TouchableOpacity style={styles.imageButton} onPress={()=>onComplete({resultStatus: EnumResultStatus.RS_CANCELED})}>
+        <Image
+          source={require('./assets/icon_close.png')}
+          style={styles.icon}
+        />
+      </TouchableOpacity>
+
+      <Text style={styles.tips}>{tips}</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {flex: 1, backgroundColor: 'black'},
+  tips: {
+    position: 'absolute',
+    bottom: 60,
+    width: '100%',
+    textAlign: 'center',
+    color: 'white',
+    paddingHorizontal: 20,
+  },
+  imageButton: {
+    position: 'absolute',
+    top: 40,
+    left: 20,
+    padding: 10,
+    zIndex: 10,
+  },
+  icon: {
+    width: 24,
+    height: 24,
+  },
+});
