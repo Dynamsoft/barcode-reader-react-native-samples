@@ -1,6 +1,6 @@
 # Foundational Barcode Reader Integration Guide
 
-In this guide, we will guide you to develop a barcode scanning app with the [`Foundational APIs`](https://dynamsoft.github.io/barcod-reader-react-native-samples/APIReferences/dynamsoft-capture-vision-react-native) of Dynamsoft Barcode Reader SDK.
+In this guide, we will guide you to develop a barcode scanning app with the [`Foundational APIs`](https://dynamsoft.github.io/barcode-reader-react-native-samples/APIReferences/dynamsoft-capture-vision-react-native) of Dynamsoft Barcode Reader SDK.
 
 ## Supported Barcode Symbologies
 
