@@ -14,7 +14,7 @@ There are two ways to use the Dynamsoft Barcode Reader React-Native SDK:
 
 - [Ready-to-use BarcodeScanner APIs](https://dynamsoft.github.io/barcode-reader-react-native-samples/APIReferences/dynamsoft-barcode-reader-bundle-react-native)
   
-- [Foundational APIs](https://dynamsoft.github.io/barcod-reader-react-native-samples/APIReferences/dynamsoft-capture-vision-react-native)
+- [Foundational APIs](https://dynamsoft.github.io/barcode-reader-react-native-samples/APIReferences/dynamsoft-capture-vision-react-native)
 
 ## Samples
 
