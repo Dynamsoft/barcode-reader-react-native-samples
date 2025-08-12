@@ -175,6 +175,12 @@ const config = {
   isBeepEnabled: false,
 
   /**
+   * Specifies whether the device should vibrate when a barcode is successfully detected.
+   * Set to true to enable the vibration, or false to disable it. Default is false.
+   * */
+  isVibrateEnabled: false,
+
+  /**
    * Enables or disables the auto-zoom feature during scanning.
    * When enabled (true), the scanner will automatically zoom in to improve barcode detection. Default is false.
    */
