@@ -77,6 +77,7 @@ export function ScannerView({onComplete}: ScannerViewProps) {
       cvr.removeResultReceiver(receiver);
       cvr.stopCapturing();
       camera.close();
+      camera.setCameraView(null);
     };
   }, [camera, cameraView, cvr, onComplete]);
 

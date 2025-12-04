@@ -4,17 +4,16 @@ This repository contains multiple samples that demonstrate how to use the [Dynam
 
 ## Integration Guide For Your Project
 
-- [Guide for Scanning Barcodes with Ready-to-use Component](./guide-scan-barcodes-ready-to-use-component.md)
-- [Guide for Scanning Barcodes with Foundational APIs](./guide-scan-barcodes-foundational-api.md)
-- [Guide for Scanning Drivers' License](./guide-scan-drivers-license.md)
+- [Guide for Scanning Barcodes with Ready-to-use Component](https://www.dynamsoft.com/barcode-reader/docs/mobile/programming/react-native/user-guide.html)
+- [Guide for Scanning Barcodes with Foundational APIs](https://www.dynamsoft.com/barcode-reader/docs/mobile/programming/react-native/foundational-user-guide.html)
 
 ## API References
 
 There are two ways to use the Dynamsoft Barcode Reader React-Native SDK:
 
-- [Ready-to-use BarcodeScanner APIs](https://dynamsoft.github.io/barcode-reader-react-native-samples/APIReferences/dynamsoft-barcode-reader-bundle-react-native)
+- [Ready-to-use BarcodeScanner APIs](https://www.dynamsoft.com/barcode-reader/docs/mobile/programming/react-native/api-reference/barcode-scanner/index.html)
   
-- [Foundational APIs](https://dynamsoft.github.io/barcode-reader-react-native-samples/APIReferences/dynamsoft-capture-vision-react-native)
+- [Foundational APIs](https://www.dynamsoft.com/barcode-reader/docs/mobile/programming/react-native/api-reference/)
 
 ## Samples
 

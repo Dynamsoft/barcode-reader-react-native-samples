@@ -87,6 +87,7 @@ function App(): React.JSX.Element {
       sub.remove();
       stopScanning();
       cvr.removeResultReceiver(receiver);
+      camera.setCameraView(null);
     };
   }, [cvr, camera]);
 
