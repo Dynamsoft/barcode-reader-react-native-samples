@@ -13,7 +13,7 @@ import {
   LicenseManager,
 } from 'dynamsoft-capture-vision-react-native';
 import React, {useEffect, useRef} from 'react';
-import {Alert, AppState, SafeAreaView, StyleSheet} from 'react-native';
+import {Alert, AppState, StyleSheet, View} from 'react-native';
 // Initialize the license.
 // The license string here is a trial license. Note that network connection is required for this license to work.
 // You can request an extension via the following link: https://www.dynamsoft.com/customer/license/trialLicense?product=dbr&utm_source=samples&package=react-native
@@ -94,9 +94,9 @@ function App(): React.JSX.Element {
   }, [cvr, camera]);
 
   return (
-    <SafeAreaView style={StyleSheet.absoluteFill}>
+    <View style={StyleSheet.absoluteFill}>
       <CameraView style={StyleSheet.absoluteFill} ref={cameraView}/>
-    </SafeAreaView>
+    </View>
   );
 }
 
