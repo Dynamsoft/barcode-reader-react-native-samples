@@ -81,6 +81,8 @@ export function ScannerView({onComplete}: ScannerViewProps) {
       cvr.stopCapturing();
       camera.close();
       camera.setCameraView(null);
+      cvr.dispose();
+      camera.dispose();
     };
   }, [camera, cameraView, cvr, onComplete]);
 

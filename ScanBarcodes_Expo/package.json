@@ -9,8 +9,8 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "dynamsoft-barcode-reader-bundle-react-native": "^11.2.5000",
-    "dynamsoft-capture-vision-react-native": "^3.2.5001",
+    "dynamsoft-barcode-reader-bundle-react-native": "^11.4.1010",
+    "dynamsoft-capture-vision-react-native": "^3.4.1000",
     "expo": "~54.0.30",
     "expo-status-bar": "~3.0.9",
     "react": "19.1.0",
