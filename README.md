@@ -23,6 +23,7 @@ There are two ways to use the Dynamsoft Barcode Reader React-Native SDK:
 | [ScanBarcodes_FoundationalAPI](ScanBarcodes_FoundationalAPI) | Demonstrates how to scan barcodes from live camera preview using the **Foundational API**, providing full control over camera, processing pipeline, and barcode results. |
 | [ScanBarcodes_Expo](ScanBarcodes_Expo) | Demonstrates barcode scanning using the **Foundational API in an Expo (Bare) project**, showing how to integrate Dynamsoft Barcode Reader into an Expo-based workflow. |
 | [ScanDriversLicense](ScanDriversLicense) | Demonstrates how to recognize and extract information from drivers’ licenses in real-time video streaming. |
+| [ScanVIN](ScanVIN) | Demonstrates how to recognize and extract information from VIN barcodes in real-time video streaming. |
 
 ### How to build and run a sample
 
@@ -44,6 +45,12 @@ or
 
 ```bash
 cd ScanDriversLicense
+```
+
+or
+
+```bash
+cd ScanVIN
 ```
 
 2. Install node modules

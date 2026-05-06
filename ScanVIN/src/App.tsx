@@ -1,14 +1,21 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, ScrollView, StyleSheet, Text, View} from 'react-native';
-import {EnumResultStatus} from './DriverLicenseScanResult.tsx';
-import {ScannerView} from './DriverLicenseScanner.tsx';
+import {EnumResultStatus} from './VINScanResult.tsx';
+import {ScannerView} from './VINScanner.tsx';
 import {useScanner} from './useScanner.tsx';
 
 function App(): React.JSX.Element {
   const [display, setDisplay] = useState({text: '', isError: false});
   const { visible, openScanner, onComplete } = useScanner();
 
-  const scanDriverLicense = async () => {
+  useEffect(() => {
+    console.log('useEffect');
+    return () => {
+      console.log('useEffect cleanup');
+    };
+  }, []);
+
+  const scanVIN = async () => {
     const result = await openScanner();
     let displayString: string;
     if (result.resultStatus === EnumResultStatus.RS_FINISHED) {
@@ -30,7 +37,7 @@ function App(): React.JSX.Element {
           {display.text}
         </Text>
       </ScrollView>
-      <Button title="Open Driver License Scanner" onPress={scanDriverLicense}/>
+      <Button title="Open VIN Scanner" onPress={scanVIN}/>
 
       {visible && (
         <View style={styles.overlay}>
@@ -47,10 +54,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 60,
-    backgroundColor: 'white',
   },
   scroll: {flex: 1, padding: 16},
-  text: {fontSize: 16, color: 'black'},
+  text: {fontSize: 16},
   error: {color: 'red'},
   overlay: {
     position: 'absolute',
