@@ -82,10 +82,10 @@ export function ScannerView({onComplete}: ScannerViewProps) {
     });
 
     return () => {
-      cvr.removeResultReceiver(receiver);
-      cvr.removeFilter(filter);
       cvr.stopCapturing();
       camera.close();
+      cvr.removeResultReceiver(receiver);
+      cvr.removeFilter(filter);
       camera.setCameraView(null);
       cvr.dispose();
       camera.dispose();

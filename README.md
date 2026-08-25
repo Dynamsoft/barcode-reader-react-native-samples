@@ -24,6 +24,18 @@ There are two ways to use the Dynamsoft Barcode Reader React-Native SDK:
 | [ScanBarcodes_Expo](ScanBarcodes_Expo) | Demonstrates barcode scanning using the **Foundational API in an Expo (Bare) project**, showing how to integrate Dynamsoft Barcode Reader into an Expo-based workflow. |
 | [ScanDriversLicense](ScanDriversLicense) | Demonstrates how to recognize and extract information from drivers’ licenses in real-time video streaming. |
 | [ScanVIN](ScanVIN) | Demonstrates how to recognize and extract information from VIN barcodes in real-time video streaming. |
+| [ScenarioOptimizedScanning](ScenarioOptimizedScanning) | Demonstrates how to optimize scanning performance for different barcode formats and scenarios by loading scenario-specific templates (1D Retail, 1D Industrial, QR Code, Data Matrix, Aztec, Dot Code, DPM, PDF417, and High-Density codes). |
+| [BarcodeReaderSettings](BarcodeReaderSettings) | Demonstrates how to configure the barcode reading settings via the **Foundational API**, including barcode formats, expected barcode count, minimum result confidence, and timeout. |
+| [LocateAnItemWithBarcode](LocateAnItemWithBarcode) | Demonstrates how to locate an item by scanning or entering its barcode ID, using visual guidance to help find the matching item in real-time video streaming. |
+| [ReadGS1AI](ReadGS1AI) | Demonstrates how to recognize and parse GS1 Application Identifiers (AIs) from barcodes, extracting and formatting fields such as dates and other AI data. |
+
+> **📌 Note on sample types**
+> 
+> The samples above are divided into two categories based on the project type:
+> - **React Native CLI samples** (non-Expo): `ScanBarcodes_ReadyToUseComponent`, `ScanBarcodes_FoundationalAPI`, `ScanDriversLicense`, `ScanVIN`
+> - **Expo (Bare) samples**: `ScanBarcodes_Expo`, `ScenarioOptimizedScanning`, `BarcodeReaderSettings`, `LocateAnItemWithBarcode`, `ReadGS1AI`
+> 
+> Please refer to the corresponding build instructions below for your sample type.
 
 ### How to build and run a sample
 
@@ -123,6 +135,30 @@ This is one way to run your app — you can also run it directly from within And
 
 ```bash
 cd ScanBarcodes_Expo
+```
+
+or
+
+```bash
+cd ScenarioOptimizedScanning
+```
+
+or
+
+```bash
+cd BarcodeReaderSettings
+```
+
+or
+
+```bash
+cd LocateAnItemWithBarcode
+```
+
+or
+
+```bash
+cd ReadGS1AI
 ```
 
 2. Install node modules
